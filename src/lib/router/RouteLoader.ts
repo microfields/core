@@ -13,6 +13,7 @@ import { hasRabbitMQService } from "../connections/rabbitmq/RabbitMQService";
 import RouteHandler from "./RouteHandler";
 import { logger } from "../utils/logger";
 import { hasPrismaService } from "../connections/prisma/PrismaService";
+import { isJsonString } from "../utils/misc";
 
 class RouteLoader {
   static DEFAULT_ROUTE_DIR: string = "routes/";
@@ -25,9 +26,6 @@ class RouteLoader {
 
     if (!fs.existsSync(routesPath)) return;
     const routes = fs.readdirSync(routesPath);
-
-    service.server.setValidatorCompiler(validatorCompiler);
-    service.server.setSerializerCompiler(serializerCompiler);
 
     const defaultRoute = new Route();
 
@@ -105,12 +103,45 @@ class RouteLoader {
 
       const handler = new RouteHandler();
 
+      let schema = {};
+      if (metadata.params) {
+        schema = {
+          ...schema,
+          params: metadata.params,
+        };
+      }
+      if (metadata.body) {
+        schema = {
+          ...schema,
+          body: metadata.body,
+        };
+      }
+      if (metadata.query) {
+        schema = {
+          ...schema,
+          querystring: metadata.query,
+        };
+      }
+
+      console.log(schema);
+
       if (defaultRoute.loader !== routeInst.loader) {
         service.server.withTypeProvider<ZodTypeProvider>().route({
           method: "GET",
           url: "/" + metadata.path,
           errorHandler(error, request, reply) {
-            service.logger.error({ package: "microfields", err: error }, "Request Error.");
+            service.logger.error(
+              { package: "microfields", err: error },
+              "Request Error."
+            );
+            reply.code(error.statusCode ?? 500);
+            reply.send({
+              error: error.name,
+              statusCode: error.statusCode ?? 500,
+              message: isJsonString(error.message)
+                ? JSON.parse(error.message)
+                : error.message,
+            });
           },
           onResponse: async (req, rep) => {
             service.logger.info(
@@ -127,11 +158,7 @@ class RouteLoader {
             );
           },
           handler: async (req) => await handler.handleLoader(routeInst, req),
-          ...(metadata.params && {
-            schema: {
-              params: metadata.params,
-            },
-          }),
+          schema,
         });
       }
 
@@ -139,6 +166,20 @@ class RouteLoader {
         service.server.withTypeProvider<ZodTypeProvider>().route({
           method: "POST",
           url: "/" + metadata.path,
+          errorHandler(error, request, reply) {
+            service.logger.error(
+              { package: "microfields", err: error },
+              "Request Error."
+            );
+            reply.code(error.statusCode ?? 500);
+            reply.send({
+              error: error.name,
+              statusCode: error.statusCode ?? 500,
+              message: isJsonString(error.message)
+                ? JSON.parse(error.message)
+                : error.message,
+            });
+          },
           onRequestAbort: () => {
             console.log("qweqwe");
           },
@@ -157,11 +198,7 @@ class RouteLoader {
             );
           },
           handler: async (req) => await handler.handleAction(routeInst, req),
-          ...(metadata.params && {
-            schema: {
-              params: metadata.params,
-            },
-          }),
+          schema,
         });
       }
     }

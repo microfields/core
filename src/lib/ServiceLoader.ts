@@ -10,6 +10,7 @@ import ConnectionManager from "./connections/ConnectionManager";
 import ServiceManager from "./ServiceManager";
 import Microfields from "../Microfields";
 import { logger } from "./utils/logger";
+import { serializerCompiler, validatorCompiler } from "fastify-type-provider-zod";
 
 class ServiceLoader {
     manager: ServiceManager;
@@ -40,6 +41,9 @@ class ServiceLoader {
                 service.server = Fastify({
                     logger: false,
                 })
+
+                service.server.setValidatorCompiler(validatorCompiler);
+                service.server.setSerializerCompiler(serializerCompiler);
 
                 service.server.setNotFoundHandler((req, rep) => {
                     service.logger.error({ package: "microfields" }, "Route not found. (" + req.url + ")");
@@ -76,7 +80,8 @@ class ServiceLoader {
                     process.exit(1)
                 }
                 logger.info({
-                    package: "microfields"
+                    package: "microfields",
+                    service: service.metadata.name
                 }, 'Service running on :' + service.metadata.port)
 
                 service.run();

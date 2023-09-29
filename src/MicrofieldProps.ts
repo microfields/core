@@ -1,5 +1,8 @@
 type MicrofieldProps = {
-    baseUrl?: string
+    baseUrl?: string;
+    logger?: {
+        logToFile?: boolean;
+    }
 }
 
 export default MicrofieldProps;

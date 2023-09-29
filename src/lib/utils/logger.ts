@@ -4,7 +4,7 @@ import { Writable } from "stream";
 import cl from "cli-color";
 import path from "path";
 import terminalLink from "terminal-link";
-
+import fs from "fs";
 
 
 const stream = new Writable({
@@ -132,19 +132,28 @@ function pretty(data: any) {
   );
 }
 
-export const logger = bunyan.createLogger({
-  name: "microfields",
-  src: true,
-  serializers: bunyan.stdSerializers,
-  streams: [
-    {
-      stream,
-    },
-    {
-      stream: new RotatingFileStream({
-        path: path.resolve(path.resolve(), "logs/" + new Date().toISOString() + "-logs.log"),
-        period: '1d',
-      })
-    }
-  ],
-});
+export function createLogger(): bunyan {
+  const dir = path.resolve(path.resolve(), "logs/");
+  if (!fs.existsSync(dir)) {
+    fs.mkdirSync(dir)
+  }
+  
+  return bunyan.createLogger({
+    name: "microfields",
+    src: true,
+    serializers: bunyan.stdSerializers,
+    streams: [
+      {
+        stream,
+      },
+      {
+        stream: new RotatingFileStream({
+          path: path.resolve(path.resolve(), "logs/" + new Date().toISOString() + "-logs.log"),
+          period: '1d',
+        })
+      }
+    ],
+  });
+}
+
+export const logger = createLogger();

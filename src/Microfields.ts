@@ -1,5 +1,3 @@
-
-import bunyan from "bunyan";
 import MicrofieldProps from "./MicrofieldProps";
 import ServiceManager from "./lib/ServiceManager";
 import Connection from "./lib/connections/Connection";
@@ -9,10 +7,6 @@ import LoggerConnector from "./lib/connections/logger/LoggerConnector";
 class Microfields {
     manager: ServiceManager;
     static props: MicrofieldProps = {};
-
-    private defaultConnections: Connection<any>[] = [
-        new LoggerConnector(),
-    ]
 
     constructor(props?: MicrofieldProps) {
         if (props) Microfields.props = props;

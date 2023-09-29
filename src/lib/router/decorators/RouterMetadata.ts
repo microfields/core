@@ -4,6 +4,8 @@ type RouterMetadata = {
     id: string;
     path: string;
     params?: AnyZodObject;
+    body?: AnyZodObject;
+    query?: AnyZodObject;
     loader?: boolean;
     action?: boolean;
 }
