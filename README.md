@@ -1,3 +1,6 @@
+
+
+
 <div align="center">
 <h1 align="center">
 <br>microfields
@@ -118,148 +121,6 @@ Microfields is a lightweight TypeScript microservice library designed to simplif
     ├── tsconfig.esm.json
     └── tsconfig.json
 ```
-
-## ⚙️ Modules
-
-<details closed><summary>Microfields</summary>
-
-| File                                                                                          | Summary                   |
-| ---                                                                                           | ---                       |
-| [index.ts](https://github.com/fitchle/microfields/blob/main/src/index.ts)                     | including library exports. |
-| [MicrofieldProps.ts](https://github.com/fitchle/microfields/blob/main/src/MicrofieldProps.ts) | Properties of Microfield |
-| [Microfields.ts](https://github.com/fitchle/microfields/blob/main/src/Microfields.ts)         | Main class for Library |
-
-</details>
-<br/>
-<br/>
-<details closed><summary>Service</summary>
-
-| File                                                                                                  | Summary                   |
-| ---                                                                                                   | ---                       |
-| [ServiceBase.ts](https://github.com/fitchle/microfields/blob/main/src/lib/ServiceBase.ts)             | Base Interface for Services |
-| [IServiceBaseProps.ts](https://github.com/fitchle/microfields/blob/main/src/lib/IServiceBaseProps.ts) | Properties for ServiceBase |
-| [ServiceGateway.ts](https://github.com/fitchle/microfields/blob/main/src/lib/ServiceGateway.ts)       | Gateway for Messaging (RabbitMQ) |
-| [ServiceLoader.ts](https://github.com/fitchle/microfields/blob/main/src/lib/ServiceLoader.ts)         | Loader Class for Services |
-| [ServiceManager.ts](https://github.com/fitchle/microfields/blob/main/src/lib/ServiceManager.ts)       | Service Registry |
-| [ServiceMetadata.ts](https://github.com/fitchle/microfields/blob/main/src/lib/ServiceMetadata.ts)     | Service Metadata, its holding your service <br/>decorator data (name, port etc.) |
-
-</details>
-
-
-<br/>
-<br/>
-
-
-
-<details closed><summary>Decorators</summary>
-
-| File                                                                                                              | Summary                   |
-| ---                                                                                                               | ---                       |
-| [ServiceDecorator.ts](https://github.com/fitchle/microfields/blob/main/src/lib/decorators/ServiceDecorator.ts)    | @Service Decorator, it holds port, name etc. |
-| [Router.ts](https://github.com/fitchle/microfields/blob/main/src/lib/router/decorators/Router.ts)                 | @Router Decorator, it holds your router properties <br/>(url, id, params, body, query etc.) |
-| [RouterMetadata.ts](https://github.com/fitchle/microfields/blob/main/src/lib/router/decorators/RouterMetadata.ts) | it holds decorator data. |
-
-</details>
-
-<br/>
-<br/>
-
-<details closed><summary>Connections</summary>
-
-| File                                                                                                                | Summary                   |
-| ---                                                                                                                 | ---                       |
-| [ConnectionPriority.ts](https://github.com/fitchle/microfields/blob/main/src/lib/connections/ConnectionPriority.ts) | Priority holder of Connection |
-| [ConnectionManager.ts](https://github.com/fitchle/microfields/blob/main/src/lib/connections/ConnectionManager.ts)   | Registry of Connections |
-| [Connection.ts](https://github.com/fitchle/microfields/blob/main/src/lib/connections/Connection.ts)                 | Connection Interface |
-
-</details>
-
-
-<br/>
-<br/>
-
-<details closed><summary>Redis (Under Construction 🚧)</summary>
-
-| File                                                                                                                                 | Summary                   |
-| ---                                                                                                                                  | ---                       |
-| [RedisConnector.ts](https://github.com/fitchle/microfields/blob/main/src/lib/connections/redis/RedisConnector.ts)                    | Connector of Redis |
-| [RedisService.ts](https://github.com/fitchle/microfields/blob/main/src/lib/connections/redis/RedisService.ts)                        | Provider of Redis |
-| [RedisCacheProvider.ts](https://github.com/fitchle/microfields/blob/main/src/lib/connections/prisma/redis/RedisCacheProvider.ts)     | Cache provider of Redis |
-| [PrismaRedisExtension.ts](https://github.com/fitchle/microfields/blob/main/src/lib/connections/prisma/redis/PrismaRedisExtension.ts) | Extension for Prisma |
-
-</details>
-
-<br/>
-<br/>
-<details closed><summary>RabbitMQ</summary>
-
-| File                                                                                                                       | Summary                   |
-| ---                                                                                                                        | ---                       |
-| [RabbitMQConnector.ts](https://github.com/fitchle/microfields/blob/main/src/lib/connections/rabbitmq/RabbitMQConnector.ts) | RabbitMQ Connector, it connects your service to RabbitMQ. |
-| [RabbitMQService.ts](https://github.com/fitchle/microfields/blob/main/src/lib/connections/rabbitmq/RabbitMQService.ts)     | RabbitMQ Service Interface |
-
-</details>
-
-<br/>
-<br/>
-
-<details closed><summary>Logger</summary>
-
-| File                                                                                                                 | Summary                   |
-| ---                                                                                                                  | ---                       |
-| [LoggerConnector.ts](https://github.com/fitchle/microfields/blob/main/src/lib/connections/logger/LoggerConnector.ts) | Connector for Logger (Bunyan) |
-
-</details>
-<br/>
-<br/>
-
-<details closed><summary>Prisma</summary>
-
-| File                                                                                                                       | Summary                   |
-| ---                                                                                                                        | ---                       |
-| [PrismaServiceProps.ts](https://github.com/fitchle/microfields/blob/main/src/lib/connections/prisma/PrismaServiceProps.ts) | Properties of Prisma Service |
-| [PrismaConnector.ts](https://github.com/fitchle/microfields/blob/main/src/lib/connections/prisma/PrismaConnector.ts)       | Connector of Prisma, it connects your service to Prisma ORM. |
-| [PrismaService.ts](https://github.com/fitchle/microfields/blob/main/src/lib/connections/prisma/PrismaService.ts)           | Prisma Service Interface |
-
-</details>
-
-
-<br/>
-<br/>
-<details closed><summary>Loader</summary>
-
-| File                                                                                                                              | Summary                   |
-| ---                                                                                                                               | ---                       |
-| [PrismaClientLoader.ts](https://github.com/fitchle/microfields/blob/main/src/lib/connections/prisma/loader/PrismaClientLoader.ts) | Loader of Prisma Client |
-
-</details>
-
-<br/>
-<br/>
-<details closed><summary>Router</summary>
-
-| File                                                                                               | Summary                   |
-| ---                                                                                                | ---                       |
-| [RouteHandler.ts](https://github.com/fitchle/microfields/blob/main/src/lib/router/RouteHandler.ts) | Handler for Routers, it executes your action or load function. |
-| [IRoute.ts](https://github.com/fitchle/microfields/blob/main/src/lib/router/IRoute.ts)             | Built-in Route Interface |
-| [Route.ts](https://github.com/fitchle/microfields/blob/main/src/lib/router/Route.ts)               | Route Interface |
-| [RouteData.ts](https://github.com/fitchle/microfields/blob/main/src/lib/router/RouteData.ts)       | It holds body, params and MQ data. |
-| [RouteLoader.ts](https://github.com/fitchle/microfields/blob/main/src/lib/router/RouteLoader.ts)   | Loader for your routes. |
-
-</details>
-
-
-<br/>
-<br/>
-<details closed><summary>Utils</summary>
-
-| File                                                                                  | Summary                   |
-| ---                                                                                   | ---                       |
-| [misc.ts](https://github.com/fitchle/microfields/blob/main/src/lib/utils/misc.ts)     | general utility |
-| [logger.ts](https://github.com/fitchle/microfields/blob/main/src/lib/utils/logger.ts) | logger utility |
-
-</details>
-<br/>
 <br/>
 
 
@@ -374,7 +235,118 @@ npm test
 > - [X] `ℹ️  Prisma Service`
 > - [ ] `ℹ️  Data Caching with Redis`
 
+<br/>
+<br/>
 
+## ⚙️ Modules
+
+<details closed><summary>Microfields</summary>
+
+| File                                                                                          | Summary                   |
+| ---                                                                                           | ---                       |
+| [index.ts](https://github.com/fitchle/microfields/blob/main/src/index.ts)                     | including library exports. |
+| [MicrofieldProps.ts](https://github.com/fitchle/microfields/blob/main/src/MicrofieldProps.ts) | Properties of Microfield |
+| [Microfields.ts](https://github.com/fitchle/microfields/blob/main/src/Microfields.ts)         | Main class for Library |
+
+</details>
+
+<details closed><summary>Service</summary>
+
+| File                                                                                                  | Summary                   |
+| ---                                                                                                   | ---                       |
+| [ServiceBase.ts](https://github.com/fitchle/microfields/blob/main/src/lib/ServiceBase.ts)             | Base Interface for Services |
+| [IServiceBaseProps.ts](https://github.com/fitchle/microfields/blob/main/src/lib/IServiceBaseProps.ts) | Properties for ServiceBase |
+| [ServiceGateway.ts](https://github.com/fitchle/microfields/blob/main/src/lib/ServiceGateway.ts)       | Gateway for Messaging (RabbitMQ) |
+| [ServiceLoader.ts](https://github.com/fitchle/microfields/blob/main/src/lib/ServiceLoader.ts)         | Loader Class for Services |
+| [ServiceManager.ts](https://github.com/fitchle/microfields/blob/main/src/lib/ServiceManager.ts)       | Service Registry |
+| [ServiceMetadata.ts](https://github.com/fitchle/microfields/blob/main/src/lib/ServiceMetadata.ts)     | Service Metadata, its holding your service <br/>decorator data (name, port etc.) |
+
+</details>
+
+
+
+
+<details closed><summary>Decorators</summary>
+
+| File                                                                                                              | Summary                   |
+| ---                                                                                                               | ---                       |
+| [ServiceDecorator.ts](https://github.com/fitchle/microfields/blob/main/src/lib/decorators/ServiceDecorator.ts)    | @Service Decorator, it holds port, name etc. |
+| [Router.ts](https://github.com/fitchle/microfields/blob/main/src/lib/router/decorators/Router.ts)                 | @Router Decorator, it holds your router properties <br/>(url, id, params, body, query etc.) |
+| [RouterMetadata.ts](https://github.com/fitchle/microfields/blob/main/src/lib/router/decorators/RouterMetadata.ts) | it holds decorator data. |
+
+</details>
+<details closed><summary>Connections</summary>
+
+| File                                                                                                                | Summary                   |
+| ---                                                                                                                 | ---                       |
+| [ConnectionPriority.ts](https://github.com/fitchle/microfields/blob/main/src/lib/connections/ConnectionPriority.ts) | Priority holder of Connection |
+| [ConnectionManager.ts](https://github.com/fitchle/microfields/blob/main/src/lib/connections/ConnectionManager.ts)   | Registry of Connections |
+| [Connection.ts](https://github.com/fitchle/microfields/blob/main/src/lib/connections/Connection.ts)                 | Connection Interface |
+
+</details>
+<details closed><summary>Redis (Under Construction 🚧)</summary>
+
+| File                                                                                                                                 | Summary                   |
+| ---                                                                                                                                  | ---                       |
+| [RedisConnector.ts](https://github.com/fitchle/microfields/blob/main/src/lib/connections/redis/RedisConnector.ts)                    | Connector of Redis |
+| [RedisService.ts](https://github.com/fitchle/microfields/blob/main/src/lib/connections/redis/RedisService.ts)                        | Provider of Redis |
+| [RedisCacheProvider.ts](https://github.com/fitchle/microfields/blob/main/src/lib/connections/prisma/redis/RedisCacheProvider.ts)     | Cache provider of Redis |
+| [PrismaRedisExtension.ts](https://github.com/fitchle/microfields/blob/main/src/lib/connections/prisma/redis/PrismaRedisExtension.ts) | Extension for Prisma |
+
+</details>
+<details closed><summary>RabbitMQ</summary>
+
+| File                                                                                                                       | Summary                   |
+| ---                                                                                                                        | ---                       |
+| [RabbitMQConnector.ts](https://github.com/fitchle/microfields/blob/main/src/lib/connections/rabbitmq/RabbitMQConnector.ts) | RabbitMQ Connector, it connects your service to RabbitMQ. |
+| [RabbitMQService.ts](https://github.com/fitchle/microfields/blob/main/src/lib/connections/rabbitmq/RabbitMQService.ts)     | RabbitMQ Service Interface |
+
+</details>
+<details closed><summary>Logger</summary>
+
+| File                                                                                                                 | Summary                   |
+| ---                                                                                                                  | ---                       |
+| [LoggerConnector.ts](https://github.com/fitchle/microfields/blob/main/src/lib/connections/logger/LoggerConnector.ts) | Connector for Logger (Bunyan) |
+
+</details>
+<details closed><summary>Prisma</summary>
+
+| File                                                                                                                       | Summary                   |
+| ---                                                                                                                        | ---                       |
+| [PrismaServiceProps.ts](https://github.com/fitchle/microfields/blob/main/src/lib/connections/prisma/PrismaServiceProps.ts) | Properties of Prisma Service |
+| [PrismaConnector.ts](https://github.com/fitchle/microfields/blob/main/src/lib/connections/prisma/PrismaConnector.ts)       | Connector of Prisma, it connects your service to Prisma ORM. |
+| [PrismaService.ts](https://github.com/fitchle/microfields/blob/main/src/lib/connections/prisma/PrismaService.ts)           | Prisma Service Interface |
+
+</details>
+
+<details closed><summary>Loader</summary>
+
+| File                                                                                                                              | Summary                   |
+| ---                                                                                                                               | ---                       |
+| [PrismaClientLoader.ts](https://github.com/fitchle/microfields/blob/main/src/lib/connections/prisma/loader/PrismaClientLoader.ts) | Loader of Prisma Client |
+
+</details>
+<details closed><summary>Router</summary>
+
+| File                                                                                               | Summary                   |
+| ---                                                                                                | ---                       |
+| [RouteHandler.ts](https://github.com/fitchle/microfields/blob/main/src/lib/router/RouteHandler.ts) | Handler for Routers, it executes your action or load function. |
+| [IRoute.ts](https://github.com/fitchle/microfields/blob/main/src/lib/router/IRoute.ts)             | Built-in Route Interface |
+| [Route.ts](https://github.com/fitchle/microfields/blob/main/src/lib/router/Route.ts)               | Route Interface |
+| [RouteData.ts](https://github.com/fitchle/microfields/blob/main/src/lib/router/RouteData.ts)       | It holds body, params and MQ data. |
+| [RouteLoader.ts](https://github.com/fitchle/microfields/blob/main/src/lib/router/RouteLoader.ts)   | Loader for your routes. |
+
+</details>
+<details closed><summary>Utils</summary>
+
+| File                                                                                  | Summary                   |
+| ---                                                                                   | ---                       |
+| [misc.ts](https://github.com/fitchle/microfields/blob/main/src/lib/utils/misc.ts)     | general utility |
+| [logger.ts](https://github.com/fitchle/microfields/blob/main/src/lib/utils/logger.ts) | logger utility |
+
+</details>
+<br/>
+<br/>
 
 
 ## 🤝 Contributing
