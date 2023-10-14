@@ -1,4 +1,5 @@
 
+<<<<<<< HEAD
 <div align="center">
 <h1 align="center">
 <img src="" width="100" />
@@ -6,14 +7,31 @@
 </h1>
 <h3>◦ HTTPStatus Exception: 401</h3>
 <h3>◦ Developed with the software and tools below.</h3>
+=======
+
+
+<div align="center">
+<h1 align="center">
+<br>microfields
+</h1>
+<br/>
+Microfields is a lightweight TypeScript microservice library designed to simplify the development of microservices. It provides essential tools and utilities for building scalable and maintainable microservices, allowing you to focus on your business logic.
+<br/>
+<br/>
+>>>>>>> b915eaa2956d3d1885ccaadd15257ca2b0670c86
 
 <p align="center">
 <img src="https://img.shields.io/badge/JavaScript-F7DF1E.svg?style&logo=JavaScript&logoColor=black" alt="JavaScript" />
 <img src="https://img.shields.io/badge/TypeScript-3178C6.svg?style&logo=TypeScript&logoColor=white" alt="TypeScript" />
+<<<<<<< HEAD
 <img src="https://img.shields.io/badge/tsnode-3178C6.svg?style&logo=ts-node&logoColor=white" alt="tsnode" />
 <img src="https://img.shields.io/badge/Prisma-2D3748.svg?style&logo=Prisma&logoColor=white" alt="Prisma" />
 <img src="https://img.shields.io/badge/Fastify-000000.svg?style&logo=Fastify&logoColor=white" alt="Fastify" />
 <img src="https://img.shields.io/badge/JSON-000000.svg?style&logo=JSON&logoColor=white" alt="JSON" />
+=======
+<img src="https://img.shields.io/badge/Prisma-2D3748.svg?style&logo=Prisma&logoColor=white" alt="Prisma" />
+<img src="https://img.shields.io/badge/Fastify-000000.svg?style&logo=Fastify&logoColor=white" alt="Fastify" />
+>>>>>>> b915eaa2956d3d1885ccaadd15257ca2b0670c86
 </p>
 <p align="center">
 <img src="https://img.shields.io/github/languages/top/fitchle/microfields?style&color=0891b2" alt="GitHub top language" />
@@ -37,7 +55,10 @@
 - [🛣 Roadmap](#-roadmap)
 - [🤝 Contributing](#-contributing)
 - [📄 License](#-license)
+<<<<<<< HEAD
 - [👏 Acknowledgments](#-acknowledgments)
+=======
+>>>>>>> b915eaa2956d3d1885ccaadd15257ca2b0670c86
 
 
 ## 📍 Overview
@@ -62,8 +83,11 @@
 ```sh
 └── microfields/
     ├── .gitignore
+<<<<<<< HEAD
     ├── caching.drawio
     ├── caching.png
+=======
+>>>>>>> b915eaa2956d3d1885ccaadd15257ca2b0670c86
     ├── package-lock.json
     ├── package.json
     ├── pnpm-lock.yaml
@@ -123,6 +147,7 @@
     ├── tsconfig.esm.json
     └── tsconfig.json
 ```
+<<<<<<< HEAD
 
 ## ⚙️ Modules
 
@@ -177,10 +202,167 @@
 
 </details>
 
+=======
+<br/>
+
+
+## 🚀 Getting Started
+
+### 📦 **Dependencies**
+
+Please ensure you have the following dependencies installed on your system:
+`- ℹ️ NodeJS >=18 (tested)`
+
+### 🔧 Installation
+
+1. install package from npm.
+```sh
+npm install microfields
+```
+<br/>
+
+2. Create your first microservice:
+```ts
+// index.ts
+
+import { PrismaClient } from "@prisma/client";
+import { Microfields, PrismaConnector, RabbitMQConnector } from "microfields";
+
+const m = new Microfields();
+const db = new PrismaClient();
+m.addConnection(new RabbitMQConnector()).addConnection(new PrismaConnector({client:  db,}));
+
+await  m.start();
+```
+<br/>
+
+
+3. Create your first service!
+```ts
+// services/example/index.ts
+
+import  { ServiceBase, Service }  from "microfields";
+
+@Service({ port: 3981, name: "my_service" })
+class MyService extends ServiceBase implements RabbitMQService, RedisService {
+	redis!:  Redis;
+	mq!:  Connection;
+	channel!:  Channel;
+	
+	async  init() {
+		// your code...
+	}
+}
+
+export default MyService;
+```
+
+<br/>
+
+4. Create your first router!
+```ts
+// routes/example.route.ts
+
+import { Router, Route, RouteData } from "microfields";
+import { z } from "zod";
+import { MyService } from "..";
+
+@Router({
+	id: "example_router",
+	path: "example", // URL, /example
+	body: z.object({ // 💫 Zod Validation
+		username: z.string(),
+		email: z.string(),
+		password: z.string()
+	})
+)}
+class ExampleRouter extends Route<MyService> {
+	async action(data:  RouteData) { // TRIGGERS POST METHOD
+		// your backend codes...
+		return {
+			message: "Hello World!",
+		};
+	}
+	
+	async loader(data:  RouteData) { // TRIGGERS GET METHOD
+		// your backend codes...
+		return {
+			message: "Hello World!",
+		};
+	}
+}
+
+export default ExampleRouter;
+```
+
+<br/>
+
+### 🤖 Running microfields
+
+```sh
+npm start
+```
+<br/>
+
+
+### 🧪 Tests
+```sh
+npm test
+```
+
+<br/>
+
+## 🛣 Roadmap
+
+> - [X] `ℹ️  Prisma Service`
+> - [ ] `ℹ️  Data Caching with Redis`
+
+<br/>
+<br/>
+
+## ⚙️ Modules
+
+<details closed><summary>Microfields</summary>
+
+| File                                                                                          | Summary                   |
+| ---                                                                                           | ---                       |
+| [index.ts](https://github.com/fitchle/microfields/blob/main/src/index.ts)                     | including library exports. |
+| [MicrofieldProps.ts](https://github.com/fitchle/microfields/blob/main/src/MicrofieldProps.ts) | Properties of Microfield |
+| [Microfields.ts](https://github.com/fitchle/microfields/blob/main/src/Microfields.ts)         | Main class for Library |
+
+</details>
+
+<details closed><summary>Service</summary>
+
+| File                                                                                                  | Summary                   |
+| ---                                                                                                   | ---                       |
+| [ServiceBase.ts](https://github.com/fitchle/microfields/blob/main/src/lib/ServiceBase.ts)             | Base Interface for Services |
+| [IServiceBaseProps.ts](https://github.com/fitchle/microfields/blob/main/src/lib/IServiceBaseProps.ts) | Properties for ServiceBase |
+| [ServiceGateway.ts](https://github.com/fitchle/microfields/blob/main/src/lib/ServiceGateway.ts)       | Gateway for Messaging (RabbitMQ) |
+| [ServiceLoader.ts](https://github.com/fitchle/microfields/blob/main/src/lib/ServiceLoader.ts)         | Loader Class for Services |
+| [ServiceManager.ts](https://github.com/fitchle/microfields/blob/main/src/lib/ServiceManager.ts)       | Service Registry |
+| [ServiceMetadata.ts](https://github.com/fitchle/microfields/blob/main/src/lib/ServiceMetadata.ts)     | Service Metadata, its holding your service <br/>decorator data (name, port etc.) |
+
+</details>
+
+
+
+
+<details closed><summary>Decorators</summary>
+
+| File                                                                                                              | Summary                   |
+| ---                                                                                                               | ---                       |
+| [ServiceDecorator.ts](https://github.com/fitchle/microfields/blob/main/src/lib/decorators/ServiceDecorator.ts)    | @Service Decorator, it holds port, name etc. |
+| [Router.ts](https://github.com/fitchle/microfields/blob/main/src/lib/router/decorators/Router.ts)                 | @Router Decorator, it holds your router properties <br/>(url, id, params, body, query etc.) |
+| [RouterMetadata.ts](https://github.com/fitchle/microfields/blob/main/src/lib/router/decorators/RouterMetadata.ts) | it holds decorator data. |
+
+</details>
+>>>>>>> b915eaa2956d3d1885ccaadd15257ca2b0670c86
 <details closed><summary>Connections</summary>
 
 | File                                                                                                                | Summary                   |
 | ---                                                                                                                 | ---                       |
+<<<<<<< HEAD
 | [ConnectionPriority.ts](https://github.com/fitchle/microfields/blob/main/src/lib/connections/ConnectionPriority.ts) | HTTPStatus Exception: 401 |
 | [ConnectionManager.ts](https://github.com/fitchle/microfields/blob/main/src/lib/connections/ConnectionManager.ts)   | HTTPStatus Exception: 401 |
 | [Connection.ts](https://github.com/fitchle/microfields/blob/main/src/lib/connections/Connection.ts)                 | HTTPStatus Exception: 401 |
@@ -207,21 +389,58 @@
 
 </details>
 
+=======
+| [ConnectionPriority.ts](https://github.com/fitchle/microfields/blob/main/src/lib/connections/ConnectionPriority.ts) | Priority holder of Connection |
+| [ConnectionManager.ts](https://github.com/fitchle/microfields/blob/main/src/lib/connections/ConnectionManager.ts)   | Registry of Connections |
+| [Connection.ts](https://github.com/fitchle/microfields/blob/main/src/lib/connections/Connection.ts)                 | Connection Interface |
+
+</details>
+<details closed><summary>Redis (Under Construction 🚧)</summary>
+
+| File                                                                                                                                 | Summary                   |
+| ---                                                                                                                                  | ---                       |
+| [RedisConnector.ts](https://github.com/fitchle/microfields/blob/main/src/lib/connections/redis/RedisConnector.ts)                    | Connector of Redis |
+| [RedisService.ts](https://github.com/fitchle/microfields/blob/main/src/lib/connections/redis/RedisService.ts)                        | Provider of Redis |
+| [RedisCacheProvider.ts](https://github.com/fitchle/microfields/blob/main/src/lib/connections/prisma/redis/RedisCacheProvider.ts)     | Cache provider of Redis |
+| [PrismaRedisExtension.ts](https://github.com/fitchle/microfields/blob/main/src/lib/connections/prisma/redis/PrismaRedisExtension.ts) | Extension for Prisma |
+
+</details>
+<details closed><summary>RabbitMQ</summary>
+
+| File                                                                                                                       | Summary                   |
+| ---                                                                                                                        | ---                       |
+| [RabbitMQConnector.ts](https://github.com/fitchle/microfields/blob/main/src/lib/connections/rabbitmq/RabbitMQConnector.ts) | RabbitMQ Connector, it connects your service to RabbitMQ. |
+| [RabbitMQService.ts](https://github.com/fitchle/microfields/blob/main/src/lib/connections/rabbitmq/RabbitMQService.ts)     | RabbitMQ Service Interface |
+
+</details>
+>>>>>>> b915eaa2956d3d1885ccaadd15257ca2b0670c86
 <details closed><summary>Logger</summary>
 
 | File                                                                                                                 | Summary                   |
 | ---                                                                                                                  | ---                       |
+<<<<<<< HEAD
 | [LoggerConnector.ts](https://github.com/fitchle/microfields/blob/main/src/lib/connections/logger/LoggerConnector.ts) | HTTPStatus Exception: 401 |
 
 </details>
 
+=======
+| [LoggerConnector.ts](https://github.com/fitchle/microfields/blob/main/src/lib/connections/logger/LoggerConnector.ts) | Connector for Logger (Bunyan) |
+
+</details>
+>>>>>>> b915eaa2956d3d1885ccaadd15257ca2b0670c86
 <details closed><summary>Prisma</summary>
 
 | File                                                                                                                       | Summary                   |
 | ---                                                                                                                        | ---                       |
+<<<<<<< HEAD
 | [PrismaServiceProps.ts](https://github.com/fitchle/microfields/blob/main/src/lib/connections/prisma/PrismaServiceProps.ts) | HTTPStatus Exception: 401 |
 | [PrismaConnector.ts](https://github.com/fitchle/microfields/blob/main/src/lib/connections/prisma/PrismaConnector.ts)       | HTTPStatus Exception: 401 |
 | [PrismaService.ts](https://github.com/fitchle/microfields/blob/main/src/lib/connections/prisma/PrismaService.ts)           | HTTPStatus Exception: 401 |
+=======
+| [PrismaServiceProps.ts](https://github.com/fitchle/microfields/blob/main/src/lib/connections/prisma/PrismaServiceProps.ts) | Properties of Prisma Service |
+| [PrismaConnector.ts](https://github.com/fitchle/microfields/blob/main/src/lib/connections/prisma/PrismaConnector.ts)       | Connector of Prisma, it connects your service to Prisma ORM. |
+| [PrismaService.ts](https://github.com/fitchle/microfields/blob/main/src/lib/connections/prisma/PrismaService.ts)           | Prisma Service Interface |
+>>>>>>> b915eaa2956d3d1885ccaadd15257ca2b0670c86
 
 </details>
 
@@ -229,14 +448,21 @@
 
 | File                                                                                                                              | Summary                   |
 | ---                                                                                                                               | ---                       |
+<<<<<<< HEAD
 | [PrismaClientLoader.ts](https://github.com/fitchle/microfields/blob/main/src/lib/connections/prisma/loader/PrismaClientLoader.ts) | HTTPStatus Exception: 401 |
 
 </details>
 
+=======
+| [PrismaClientLoader.ts](https://github.com/fitchle/microfields/blob/main/src/lib/connections/prisma/loader/PrismaClientLoader.ts) | Loader of Prisma Client |
+
+</details>
+>>>>>>> b915eaa2956d3d1885ccaadd15257ca2b0670c86
 <details closed><summary>Router</summary>
 
 | File                                                                                               | Summary                   |
 | ---                                                                                                | ---                       |
+<<<<<<< HEAD
 | [RouteHandler.ts](https://github.com/fitchle/microfields/blob/main/src/lib/router/RouteHandler.ts) | HTTPStatus Exception: 401 |
 | [IRoute.ts](https://github.com/fitchle/microfields/blob/main/src/lib/router/IRoute.ts)             | HTTPStatus Exception: 401 |
 | [Route.ts](https://github.com/fitchle/microfields/blob/main/src/lib/router/Route.ts)               | HTTPStatus Exception: 401 |
@@ -245,10 +471,20 @@
 
 </details>
 
+=======
+| [RouteHandler.ts](https://github.com/fitchle/microfields/blob/main/src/lib/router/RouteHandler.ts) | Handler for Routers, it executes your action or load function. |
+| [IRoute.ts](https://github.com/fitchle/microfields/blob/main/src/lib/router/IRoute.ts)             | Built-in Route Interface |
+| [Route.ts](https://github.com/fitchle/microfields/blob/main/src/lib/router/Route.ts)               | Route Interface |
+| [RouteData.ts](https://github.com/fitchle/microfields/blob/main/src/lib/router/RouteData.ts)       | It holds body, params and MQ data. |
+| [RouteLoader.ts](https://github.com/fitchle/microfields/blob/main/src/lib/router/RouteLoader.ts)   | Loader for your routes. |
+
+</details>
+>>>>>>> b915eaa2956d3d1885ccaadd15257ca2b0670c86
 <details closed><summary>Utils</summary>
 
 | File                                                                                  | Summary                   |
 | ---                                                                                   | ---                       |
+<<<<<<< HEAD
 | [misc.ts](https://github.com/fitchle/microfields/blob/main/src/lib/utils/misc.ts)     | HTTPStatus Exception: 401 |
 | [logger.ts](https://github.com/fitchle/microfields/blob/main/src/lib/utils/logger.ts) | HTTPStatus Exception: 401 |
 
@@ -304,6 +540,14 @@ npm test
 > - [ ] `ℹ️  Caching in Redis`
 
 
+=======
+| [misc.ts](https://github.com/fitchle/microfields/blob/main/src/lib/utils/misc.ts)     | general utility |
+| [logger.ts](https://github.com/fitchle/microfields/blob/main/src/lib/utils/logger.ts) | logger utility |
+
+</details>
+<br/>
+<br/>
+>>>>>>> b915eaa2956d3d1885ccaadd15257ca2b0670c86
 
 
 ## 🤝 Contributing
