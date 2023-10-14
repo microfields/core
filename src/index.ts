@@ -11,8 +11,16 @@ import type { Channel, Connection } from "amqplib";
 import PrismaConnector from "./lib/connections/prisma/PrismaConnector";
 import { PrismaService } from "./lib/connections/prisma/PrismaService";
 import PrismaServiceProps from "./lib/connections/prisma/PrismaServiceProps";
+import type ServiceMiddleware from "./lib/middleware/ServiceMiddleware";
+import type { FastifyReply, FastifyRequest } from "fastify";
 
-export type { Connection, Channel };
+export type {
+  Connection,
+  Channel,
+  FastifyRequest,
+  FastifyReply,
+  ServiceMiddleware,
+};
 
 export {
   Microfields,

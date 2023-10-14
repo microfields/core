@@ -23,7 +23,7 @@ class Microfields {
 
     async start() {
         await this.init();
-        await this.manager.load();
+        await ServiceManager.load();
     }
 
     addConnection(connection: Connection<any>): Microfields {

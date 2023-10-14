@@ -1,21 +1,21 @@
 
 import ServiceBase from "./ServiceBase";
 import ServiceLoader from "./ServiceLoader";
+import BaseGenerator from "./generator/BaseGenerator";
 
 class ServiceManager {
-    services: ServiceBase[] = [];
-    loader: ServiceLoader;
+    static services: ServiceBase[] = [];
+    static loader: ServiceLoader;
+    private static generator: BaseGenerator = new BaseGenerator();
 
-    constructor() {
-        this.loader = new ServiceLoader(this);
-    }
-
-    register(service: ServiceBase) {
+    static register(service: ServiceBase) {
         this.services.push(service);
     }
 
-    async load() {
-        await this.loader.load();
+    static async load() {
+        this.loader = new ServiceLoader();
+        await this.loader.load(); 
+        await this.generator.generateServices(this.services);
     }
 }
 

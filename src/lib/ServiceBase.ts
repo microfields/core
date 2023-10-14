@@ -1,28 +1,46 @@
-import Fastify, { type FastifyInstance } from "fastify"
+import Fastify, {
+  FastifyBaseLogger,
+  FastifyReply,
+  FastifyRequest,
+  FastifySchema,
+  FastifyTypeProviderDefault,
+  RawServerDefault,
+  RouteGenericInterface,
+  type FastifyInstance,
+} from "fastify";
 
-import type Redis from "ioredis";
 import IServiceBaseProps from "./IServiceBaseProps";
 import { BakedServiceMetadata } from "./ServiceMetadata";
 import Bunyan from "bunyan";
+import ServiceMiddleware from "./middleware/ServiceMiddleware";
+import { ResolveFastifyRequestType } from "fastify/types/type-provider";
+import { IncomingMessage, ServerResponse } from "http";
+import path from "path";
 
-abstract class ServiceBase implements IServiceBaseProps {
-    server!: FastifyInstance;
-    logger!: Bunyan;
+class ServiceBase implements IServiceBaseProps, ServiceMiddleware {
+  server!: FastifyInstance;
+  logger!: Bunyan;
 
-    metadata: BakedServiceMetadata = {
-        name: "default",
-        port: 3880,
-        path: __dirname,
-        mq: {
-            routingKey: "default"
-        }
-    }
+  metadata: BakedServiceMetadata = {
+    name: "default",
+    port: 3880,
+    path: path.resolve(),
+    mq: {
+      routingKey: "default",
+    },
+  };
 
-    async init() { }
+  async init() {}
 
-    async run() { }
+  async run() {}
 
-    async shutdown() { }
+  async shutdown() {}
+
+  middleware(
+    req: FastifyRequest<any>,
+    res: FastifyReply<any>,
+    next: () => void
+  ) {}
 }
 
 export default ServiceBase;

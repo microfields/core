@@ -1,19 +1,16 @@
 import fs from "fs";
 import path from "path";
 
-import {
-  serializerCompiler,
-  validatorCompiler,
-  ZodTypeProvider,
-} from "fastify-type-provider-zod";
+import { ZodTypeProvider } from "fastify-type-provider-zod";
 import Route from "./Route";
 import { RouterMetadata } from "./decorators/RouterMetadata";
 import ServiceBase from "../ServiceBase";
 import { hasRabbitMQService } from "../connections/rabbitmq/RabbitMQService";
 import RouteHandler from "./RouteHandler";
 import { logger } from "../utils/logger";
-import { hasPrismaService } from "../connections/prisma/PrismaService";
 import { isJsonString } from "../utils/misc";
+
+const dummyMiddleware = new ServiceBase();
 
 class RouteLoader {
   static DEFAULT_ROUTE_DIR: string = "routes/";
@@ -98,8 +95,8 @@ class RouteLoader {
       }
 
       // if (hasPrismaService(service)) {
-      //   routeInst.db = service.db;
-      // }
+      //    routeInst.db = service.db;
+      //  }
 
       const handler = new RouteHandler();
 
@@ -123,12 +120,13 @@ class RouteLoader {
         };
       }
 
-      console.log(schema);
-
       if (defaultRoute.loader !== routeInst.loader) {
         service.server.withTypeProvider<ZodTypeProvider>().route({
           method: "GET",
           url: "/" + metadata.path,
+          ...(dummyMiddleware.middleware !== service.middleware && {
+            preHandler: [service.middleware],
+          }),
           errorHandler(error, request, reply) {
             service.logger.error(
               { package: "microfields", err: error },
@@ -166,6 +164,9 @@ class RouteLoader {
         service.server.withTypeProvider<ZodTypeProvider>().route({
           method: "POST",
           url: "/" + metadata.path,
+          ...(dummyMiddleware.middleware !== service.middleware && {
+            preHandler: [service.middleware],
+          }),
           errorHandler(error, request, reply) {
             service.logger.error(
               { package: "microfields", err: error },
