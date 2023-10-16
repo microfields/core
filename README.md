@@ -290,15 +290,6 @@ npm test
 ## 🛣 Roadmap
 
 > - [X] `ℹ️  Prisma Service`
-> - [ ] `ℹ️  Data Caching with Redis`
-
-<br/>
-<br/>
-
-
-## 🛣 Roadmap
-
-> - [X] `ℹ️  Prisma Service`
 > - [ ] `ℹ️  Caching in Redis`
 
 ## 🤝 Contributing
@@ -326,5 +317,3 @@ The project maintainers will review your changes and provide feedback or merge t
 ## 📄 License
 
 This project is licensed under the `MIT` License. See the [MIT](LICENSE) file for additional info.
-
-
