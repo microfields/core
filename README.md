@@ -1,19 +1,16 @@
 
-<div align="center">
 <h1 align="center">
-<img src="" width="100" />
 <br>microfields
 </h1>
-<h3>◦ HTTPStatus Exception: 401</h3>
-<h3>◦ Developed with the software and tools below.</h3>
+Microfields is a lightweight TypeScript microservice library designed to simplify the development of microservices. It provides essential tools and utilities for building scalable and maintainable microservices, allowing you to focus on your business logic.
+
+<br>
 
 <p align="center">
 <img src="https://img.shields.io/badge/JavaScript-F7DF1E.svg?style&logo=JavaScript&logoColor=black" alt="JavaScript" />
 <img src="https://img.shields.io/badge/TypeScript-3178C6.svg?style&logo=TypeScript&logoColor=white" alt="TypeScript" />
-<img src="https://img.shields.io/badge/tsnode-3178C6.svg?style&logo=ts-node&logoColor=white" alt="tsnode" />
 <img src="https://img.shields.io/badge/Prisma-2D3748.svg?style&logo=Prisma&logoColor=white" alt="Prisma" />
 <img src="https://img.shields.io/badge/Fastify-000000.svg?style&logo=Fastify&logoColor=white" alt="Fastify" />
-<img src="https://img.shields.io/badge/JSON-000000.svg?style&logo=JSON&logoColor=white" alt="JSON" />
 </p>
 <p align="center">
 <img src="https://img.shields.io/github/languages/top/fitchle/microfields?style&color=0891b2" alt="GitHub top language" />
@@ -54,244 +51,6 @@
 -  **Logging:** Microfields comes with the Bunyan logger preconfigured to help you track and debug your microservices easily. 
 -  **Prisma Support (Optional):** If needed, you can use the Prisma ORM for database operations. Microfields offers optional support for Prisma.
 
-
-
-## 📂 Repository Structure
-
-```sh
-└── microfields/
-    ├── .gitignore
-    ├── caching.drawio
-    ├── caching.png
-    ├── package-lock.json
-    ├── package.json
-    ├── pnpm-lock.yaml
-    ├── rollup.config.js
-    ├── src/
-    │   ├── MicrofieldProps.ts
-    │   ├── Microfields.ts
-    │   ├── __tests__/
-    │   │   └── test.ts
-    │   ├── config.json
-    │   ├── index.ts
-    │   └── lib/
-    │       ├── IServiceBaseProps.ts
-    │       ├── ServiceBase.ts
-    │       ├── ServiceGateway.ts
-    │       ├── ServiceLoader.ts
-    │       ├── ServiceManager.ts
-    │       ├── ServiceMetadata.ts
-    │       ├── connections/
-    │       │   ├── Connection.ts
-    │       │   ├── ConnectionManager.ts
-    │       │   ├── ConnectionPriority.ts
-    │       │   ├── logger/
-    │       │   │   └── LoggerConnector.ts
-    │       │   ├── prisma/
-    │       │   │   ├── PrismaConnector.ts
-    │       │   │   ├── PrismaService.ts
-    │       │   │   ├── PrismaServiceProps.ts
-    │       │   │   ├── loader/
-    │       │   │   │   └── PrismaClientLoader.ts
-    │       │   │   └── redis/
-    │       │   │       ├── PrismaRedisExtension.ts
-    │       │   │       └── RedisCacheProvider.ts
-    │       │   ├── rabbitmq/
-    │       │   │   ├── RabbitMQConnector.ts
-    │       │   │   └── RabbitMQService.ts
-    │       │   └── redis/
-    │       │       ├── RedisConnector.ts
-    │       │       └── RedisService.ts
-    │       ├── decorators/
-    │       │   └── ServiceDecorator.ts
-    │       ├── messaging/
-    │       │   └── ServiceConsumerBase.ts
-    │       ├── router/
-    │       │   ├── IRoute.ts
-    │       │   ├── Route.ts
-    │       │   ├── RouteData.ts
-    │       │   ├── RouteHandler.ts
-    │       │   ├── RouteLoader.ts
-    │       │   └── decorators/
-    │       │       ├── Router.ts
-    │       │       └── RouterMetadata.ts
-    │       └── utils/
-    │           ├── logger.ts
-    │           └── misc.ts
-    ├── tsconfig.cjs.json
-    ├── tsconfig.esm.json
-    └── tsconfig.json
-```
-
-## ⚙️ Modules
-
-<details closed><summary>Root</summary>
-
-| File                                                                                  | Summary                               |
-| ---                                                                                   | ---                                   |
-| [rollup.config.js](https://github.com/fitchle/microfields/blob/main/rollup.config.js) | HTTPStatus Exception: 401             |
-| [pnpm-lock.yaml](https://github.com/fitchle/microfields/blob/main/pnpm-lock.yaml)     | Prompt exceeds max token limit: 4918. |
-| [caching.drawio](https://github.com/fitchle/microfields/blob/main/caching.drawio)     | HTTPStatus Exception: 401             |
-
-</details>
-
-<details closed><summary>Src</summary>
-
-| File                                                                                          | Summary                   |
-| ---                                                                                           | ---                       |
-| [index.ts](https://github.com/fitchle/microfields/blob/main/src/index.ts)                     | HTTPStatus Exception: 401 |
-| [MicrofieldProps.ts](https://github.com/fitchle/microfields/blob/main/src/MicrofieldProps.ts) | HTTPStatus Exception: 401 |
-| [Microfields.ts](https://github.com/fitchle/microfields/blob/main/src/Microfields.ts)         | HTTPStatus Exception: 401 |
-
-</details>
-
-<details closed><summary>Lib</summary>
-
-| File                                                                                                  | Summary                   |
-| ---                                                                                                   | ---                       |
-| [ServiceBase.ts](https://github.com/fitchle/microfields/blob/main/src/lib/ServiceBase.ts)             | HTTPStatus Exception: 401 |
-| [IServiceBaseProps.ts](https://github.com/fitchle/microfields/blob/main/src/lib/IServiceBaseProps.ts) | HTTPStatus Exception: 401 |
-| [ServiceGateway.ts](https://github.com/fitchle/microfields/blob/main/src/lib/ServiceGateway.ts)       | HTTPStatus Exception: 401 |
-| [ServiceLoader.ts](https://github.com/fitchle/microfields/blob/main/src/lib/ServiceLoader.ts)         | HTTPStatus Exception: 401 |
-| [ServiceManager.ts](https://github.com/fitchle/microfields/blob/main/src/lib/ServiceManager.ts)       | HTTPStatus Exception: 401 |
-| [ServiceMetadata.ts](https://github.com/fitchle/microfields/blob/main/src/lib/ServiceMetadata.ts)     | HTTPStatus Exception: 401 |
-
-</details>
-
-<details closed><summary>Decorators</summary>
-
-| File                                                                                                              | Summary                   |
-| ---                                                                                                               | ---                       |
-| [ServiceDecorator.ts](https://github.com/fitchle/microfields/blob/main/src/lib/decorators/ServiceDecorator.ts)    | HTTPStatus Exception: 401 |
-| [Router.ts](https://github.com/fitchle/microfields/blob/main/src/lib/router/decorators/Router.ts)                 | HTTPStatus Exception: 401 |
-| [RouterMetadata.ts](https://github.com/fitchle/microfields/blob/main/src/lib/router/decorators/RouterMetadata.ts) | HTTPStatus Exception: 401 |
-
-</details>
-
-<details closed><summary>Messaging</summary>
-
-| File                                                                                                                | Summary                   |
-| ---                                                                                                                 | ---                       |
-| [ServiceConsumerBase.ts](https://github.com/fitchle/microfields/blob/main/src/lib/messaging/ServiceConsumerBase.ts) | HTTPStatus Exception: 401 |
-
-</details>
-
-<br/>
-
-
-## 🚀 Getting Started
-
-### 📦 **Dependencies**
-
-Please ensure you have the following dependencies installed on your system:
-`- ℹ️ NodeJS >=18 (tested)`
-
-### 🔧 Installation
-
-1. install package from npm.
-```sh
-npm install microfields
-```
-<br/>
-
-2. Create your first microservice:
-```ts
-// index.ts
-
-import { PrismaClient } from "@prisma/client";
-import { Microfields, PrismaConnector, RabbitMQConnector } from "microfields";
-
-const m = new Microfields();
-const db = new PrismaClient();
-m.addConnection(new RabbitMQConnector()).addConnection(new PrismaConnector({client:  db,}));
-
-await  m.start();
-```
-<br/>
-
-
-3. Create your first service!
-```ts
-// services/example/index.ts
-
-import  { ServiceBase, Service }  from "microfields";
-
-@Service({ port: 3981, name: "my_service" })
-class MyService extends ServiceBase implements RabbitMQService, RedisService {
-	redis!:  Redis;
-	mq!:  Connection;
-	channel!:  Channel;
-	
-	async  init() {
-		// your code...
-	}
-}
-
-export default MyService;
-```
-
-<br/>
-
-4. Create your first router!
-```ts
-// routes/example.route.ts
-
-import { Router, Route, RouteData } from "microfields";
-import { z } from "zod";
-import { MyService } from "..";
-
-@Router({
-	id: "example_router",
-	path: "example", // URL, /example
-	body: z.object({ // 💫 Zod Validation
-		username: z.string(),
-		email: z.string(),
-		password: z.string()
-	})
-)}
-class ExampleRouter extends Route<MyService> {
-	async action(data:  RouteData) { // TRIGGERS POST METHOD
-		// your backend codes...
-		return {
-			message: "Hello World!",
-		};
-	}
-	
-	async loader(data:  RouteData) { // TRIGGERS GET METHOD
-		// your backend codes...
-		return {
-			message: "Hello World!",
-		};
-	}
-}
-
-export default ExampleRouter;
-```
-
-<br/>
-
-### 🤖 Running microfields
-
-```sh
-npm start
-```
-<br/>
-
-
-### 🧪 Tests
-```sh
-npm test
-```
-
-<br/>
-
-## 🛣 Roadmap
-
-> - [X] `ℹ️  Prisma Service`
-> - [ ] `ℹ️  Data Caching with Redis`
-
-<br/>
-<br/>
 
 ## ⚙️ Modules
 
@@ -418,78 +177,129 @@ npm test
 | [PrismaClientLoader.ts](https://github.com/fitchle/microfields/blob/main/src/lib/connections/prisma/loader/PrismaClientLoader.ts) | Loader of Prisma Client |
 
 </details>
-<details closed><summary>Router</summary>
 
-| File                                                                                               | Summary                   |
-| ---                                                                                                | ---                       |
-| [RouteHandler.ts](https://github.com/fitchle/microfields/blob/main/src/lib/router/RouteHandler.ts) | HTTPStatus Exception: 401 |
-| [IRoute.ts](https://github.com/fitchle/microfields/blob/main/src/lib/router/IRoute.ts)             | HTTPStatus Exception: 401 |
-| [Route.ts](https://github.com/fitchle/microfields/blob/main/src/lib/router/Route.ts)               | HTTPStatus Exception: 401 |
-| [RouteData.ts](https://github.com/fitchle/microfields/blob/main/src/lib/router/RouteData.ts)       | HTTPStatus Exception: 401 |
-| [RouteLoader.ts](https://github.com/fitchle/microfields/blob/main/src/lib/router/RouteLoader.ts)   | HTTPStatus Exception: 401 |
-
-</details>
-
-<details closed><summary>Utils</summary>
-
-| File                                                                                  | Summary                   |
-| ---                                                                                   | ---                       |
-| [misc.ts](https://github.com/fitchle/microfields/blob/main/src/lib/utils/misc.ts)     | HTTPStatus Exception: 401 |
-| [logger.ts](https://github.com/fitchle/microfields/blob/main/src/lib/utils/logger.ts) | HTTPStatus Exception: 401 |
-
-</details>
-
-<details closed><summary>__tests__</summary>
-
-| File                                                                              | Summary                   |
-| ---                                                                               | ---                       |
-| [test.ts](https://github.com/fitchle/microfields/blob/main/src/__tests__/test.ts) | HTTPStatus Exception: 401 |
-
-</details>
+<br/>
 
 
 ## 🚀 Getting Started
 
-***Dependencies***
+### 📦 **Dependencies**
 
 Please ensure you have the following dependencies installed on your system:
-
-`- ℹ️ Dependency 1`
-
-`- ℹ️ Dependency 2`
-
-`- ℹ️ ...`
+`- ℹ️ NodeJS >=18 (tested)`
 
 ### 🔧 Installation
 
-1. install from npm to project:
+1. install package from npm.
 ```sh
 npm install microfields
 ```
+<br/>
 
-2. Create
-```sh
-npm install
+2. Create your first microservice:
+```ts
+// index.ts
+
+import { PrismaClient } from "@prisma/client";
+import { Microfields, PrismaConnector, RabbitMQConnector } from "microfields";
+
+const m = new Microfields();
+const db = new PrismaClient();
+m.addConnection(new RabbitMQConnector()).addConnection(new PrismaConnector({client:  db,}));
+
+await  m.start();
 ```
+<br/>
+
+
+3. Create your first service!
+```ts
+// services/example/index.ts
+
+import  { ServiceBase, Service }  from "microfields";
+
+@Service({ port: 3981, name: "my_service" })
+class MyService extends ServiceBase implements RabbitMQService, RedisService {
+	redis!:  Redis;
+	mq!:  Connection;
+	channel!:  Channel;
+	
+	async  init() {
+		// your code...
+	}
+}
+
+export default MyService;
+```
+
+<br/>
+
+4. Create your first router!
+```ts
+// routes/example.route.ts
+
+import { Router, Route, RouteData } from "microfields";
+import { z } from "zod";
+import { MyService } from "..";
+
+@Router({
+	id: "example_router",
+	path: "example", // URL, /example
+	body: z.object({ // 💫 Zod Validation
+		username: z.string(),
+		email: z.string(),
+		password: z.string()
+	})
+)}
+class ExampleRouter extends Route<MyService> {
+	async action(data:  RouteData) { // TRIGGERS POST METHOD
+		// your backend codes...
+		return {
+			message: "Hello World!",
+		};
+	}
+	
+	async loader(data:  RouteData) { // TRIGGERS GET METHOD
+		// your backend codes...
+		return {
+			message: "Hello World!",
+		};
+	}
+}
+
+export default ExampleRouter;
+```
+
+<br/>
 
 ### 🤖 Running microfields
 
 ```sh
-npm run build && node dist/main.js
+npm start
 ```
+<br/>
+
 
 ### 🧪 Tests
 ```sh
 npm test
 ```
 
+<br/>
+
+## 🛣 Roadmap
+
+> - [X] `ℹ️  Prisma Service`
+> - [ ] `ℹ️  Data Caching with Redis`
+
+<br/>
+<br/>
+
+
 ## 🛣 Roadmap
 
 > - [X] `ℹ️  Prisma Service`
 > - [ ] `ℹ️  Caching in Redis`
-
-
-
 
 ## 🤝 Contributing
 
